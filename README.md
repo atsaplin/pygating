@@ -2,6 +2,8 @@
 
 PyGating is a versatile Python library for building complex gating systems. It's designed to handle various gating scenarios such as feature toggling, access control, and A/B testing, with support for both code-based and JSON-based configurations.
 
+Check out the respository [here](https://github.com/atsaplin/pygating) for more information and documentation
+
 ## Features
 
 - **Extensible Framework**: Create custom gates by extending base gate classes.
