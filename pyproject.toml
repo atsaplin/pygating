@@ -1,5 +1,5 @@
 [project]
-name = pygating
+name = "pygating"
 version = "0.0.1"
 authors = [
   { name="Aleksey Tsaplin", email="tsapleksey@gmail.com" },
