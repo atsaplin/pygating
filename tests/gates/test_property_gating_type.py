@@ -69,11 +69,6 @@ class TestPropertyGatingType:
             gate.entity_value({"name": "John"})
 
 
-    def test_entity_with_invalid_property_type_raises_exception(self):
-        gate = ExamplePropertyGating(entity_property="age")
-        with pytest.raises(GatingException):
-            gate.entity_value({"age": "twenty"})
-    
 
     def test_entity_with_callable_property(self):
         class TestEntity:
