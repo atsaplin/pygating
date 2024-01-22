@@ -13,6 +13,9 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+[project.dependencies]
+python-dateutil = "*"
+
 [project.urls]
 Homepage = "https://github.com/atsaplin/pygating"
 Issues = "https://github.com/atsaplin/pygating"

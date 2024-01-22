@@ -153,17 +153,16 @@ class PyGating():
 
     @staticmethod
     def check_gating(
-        gate_configuration: Optional[AbstractGatingConfiguration] = None, 
-        gate_configuration_json: Optional[Dict[str, Any]] = None,
+        gate_configuration: Any, 
         entity: Optional[Any] = None
     ):
-        if gate_configuration:
-            return gate_configuration.check(entity=entity)
+        if not gate_configuration:
+            raise ValueError("No gate configuration provided")
         
-        if gate_configuration_json:
-            gate_config = PyGating._parse_gate_configuration_from_json(gate_configuration_json)
-            return gate_config.check(entity=entity)
-        
-        raise GatingException("Must provide either gate_configuration or gate_configuration_json")
+        # Check if json was passed, and parse if so
+        if isinstance(gate_configuration, dict):
+            gate_configuration = PyGating._parse_gate_configuration_from_json(gate_configuration)
+
+        return gate_configuration.check(entity=entity)
         
         
