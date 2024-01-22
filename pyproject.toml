@@ -1,6 +1,6 @@
 [project]
 name = "pygating"
-version = "0.0.2"
+version = "1.0.0"
 authors = [
   { name="Aleksey Tsaplin", email="tsapleksey@gmail.com" },
 ]
@@ -13,9 +13,12 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
-[project.dependencies]
-python-dateutil = "*"
+dependencies = [
+  "python-dateutil"
+]
 
 [project.urls]
-Homepage = "https://github.com/atsaplin/pygating"
-Issues = "https://github.com/atsaplin/pygating"
+homepage = "https://github.com/atsaplin/pygating"
+repository = "https://github.com/atsaplin/pygating"
+documentation = "https://github.com/atsaplin/pygating"
+issues = "https://github.com/atsaplin/pygating/issues"

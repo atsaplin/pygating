@@ -73,10 +73,3 @@ else:
 ```bash
 pip install pygating
 ```
-
-## Pre-defined Gates and Gating Configurations
-### Gating Configurations
-#### GatingConfigurationAny
-This gating configuration will pass if any gates in the gate list pass their gate check
-
-
