@@ -29,8 +29,8 @@ class PercentageGate(PropertyGatingType):
     def _parse_json_params(cls, gate_json: Dict[str, Any]) -> Dict:
         params = super()._parse_json_params(gate_json)
 
-        if "percentage" not in gate_json or not isinstance(gate_json["percentage"], float):
-            raise ValueError("The 'percentage' field must be provided and be a float")
+        if "percentage" not in gate_json or not isinstance(gate_json["percentage"], (float, int)):
+            raise ValueError("The 'percentage' field must be provided and be a float or an int")
         
         if "salt" in gate_json:
             if not isinstance(gate_json["salt"], str):
