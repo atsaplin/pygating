@@ -1,7 +1,7 @@
 
 import pytest
-from src.pygating.gates import InclusionGate
-from src.pygating import GatingException
+from pygating.gates import InclusionGate
+from pygating import GatingException
 
 
 class TestInclusionGate:
