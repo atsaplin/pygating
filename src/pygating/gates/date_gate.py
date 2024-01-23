@@ -1,6 +1,6 @@
 from typing import Any,  Optional, Dict
 from datetime import datetime
-from src.pygating.pygating import AbstractGate
+from ..pygating import AbstractGate
 import dateutil.parser
 
 class DateGate(AbstractGate):

@@ -1,5 +1,5 @@
 from typing import Any,  Optional, Dict
-from src.pygating.pygating import AbstractGate, GatingException
+from ..pygating import AbstractGate, GatingException
 
 class PropertyGatingType(AbstractGate):
     def __init__(self, property_type: Any, entity_property: Optional[str] = None, allow: bool = True):

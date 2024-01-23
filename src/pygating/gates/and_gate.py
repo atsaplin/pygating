@@ -1,5 +1,5 @@
 from typing import Any,  Optional, List, Dict
-from src.pygating import AbstractGate, GatingException
+from ..pygating import AbstractGate, GatingException
 
 
 class AndGate(AbstractGate):

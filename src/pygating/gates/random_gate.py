@@ -1,6 +1,6 @@
 from typing import Any,  Optional, Dict
 import random
-from src.pygating.pygating import AbstractGate
+from ..pygating import AbstractGate
 
 class RandomGate(AbstractGate):
     def __init__(self, chance: float, allow: bool = True):

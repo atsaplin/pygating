@@ -1,4 +1,4 @@
-from src.pygating.pygating import AbstractGatingConfiguration
+from ..pygating import AbstractGatingConfiguration
 from typing import Any, Optional
 
 class GatingConfigurationAll(AbstractGatingConfiguration):

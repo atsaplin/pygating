@@ -1,5 +1,5 @@
 from typing import Any,  Optional, Callable, Dict
-from src.pygating.pygating import AbstractGate
+from ..pygating import AbstractGate
 
 class CustomScriptGate(AbstractGate):
     def __init__(self, script_function: Callable[[Any], bool], allow: bool = True):
