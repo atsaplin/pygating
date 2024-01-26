@@ -44,12 +44,12 @@ Json-based config
 ```json
 gate_config = {
     "type": "GatingConfigurationAll",
-    "fail_closed": True,
+    "fail_closed": true,
     "gates": [
         {
             "type": "PercentageGate",
             "percentage": 10.0,
-            "allow": True,
+            "allow": true,
             "entity_property": "id"
         }
     ]
