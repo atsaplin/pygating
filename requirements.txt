@@ -1,1 +1,3 @@
+pytest
 python-dateutil
+pytest-mock
