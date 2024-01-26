@@ -1,4 +1,4 @@
-from typing import Any, List, Optional, Dict
+from typing import Any, List, Optional, Dict, Callable
 from abc import ABC, abstractmethod
 
 
@@ -6,6 +6,8 @@ class GatingException(Exception):
     def __init__(self, message=""):
         super().__init__(message)
 
+def handle_exception(exception: Exception):
+    pass
     
 class AbstractGate(ABC):
     def __init__(self, allow: bool = True):
@@ -79,15 +81,16 @@ class AbstractGatingConfiguration(ABC):
 
         return gates
 
-    def check(self, entity: Optional[Any] = None) -> bool:
+    def check(self, entity: Optional[Any] = None, exception_callback: Optional[Callable] = None) -> bool:
         try:
             return self._check_gating(entity=entity)
         except Exception as e:
+            if exception_callback:
+                exception_callback(e)
+                
             if self.fail_closed:
-                print(f"Gating exception (failing closed): {e}")
                 return False
             else:
-                print(f"Gating exception (failing open): {e}")
                 return True
     
 class PyGating():
@@ -154,7 +157,8 @@ class PyGating():
     @staticmethod
     def check_gating(
         gate_configuration: Any, 
-        entity: Optional[Any] = None
+        entity: Optional[Any] = None,
+        exception_callback: Optional[Callable] = None
     ):
         if not gate_configuration:
             raise ValueError("No gate configuration provided")
@@ -163,6 +167,6 @@ class PyGating():
         if isinstance(gate_configuration, dict):
             gate_configuration = PyGating._parse_gate_configuration_from_json(gate_configuration)
 
-        return gate_configuration.check(entity=entity)
+        return gate_configuration.check(entity=entity, exception_callback=exception_callback)
         
         
