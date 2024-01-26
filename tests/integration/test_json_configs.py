@@ -1,7 +1,7 @@
 # tests/test_simple_gate.py
 import pytest
-from pygating.gates import SimpleGate, PropertyGatingType
-from pygating import AbstractGatingConfiguration, AbstractGate, PyGating
+from src.pygating.gates import SimpleGate, PropertyGatingType
+from src.pygating import AbstractGatingConfiguration, AbstractGate, PyGating
 from typing import Optional, Any, Dict, List
 
 class ConcreteGate(AbstractGate):

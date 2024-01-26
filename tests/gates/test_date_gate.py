@@ -1,7 +1,7 @@
 
 import pytest
-from pygating.gates import DateGate
-from pygating import GatingException
+from src.pygating.gates import DateGate
+from src.pygating import GatingException
 from datetime import datetime
 from unittest.mock import Mock
 

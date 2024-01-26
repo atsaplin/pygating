@@ -1,5 +1,5 @@
-from pygating.gates import AndGate
-from pygating.pygating import AbstractGate, AbstractGatingConfiguration, PyGating, GatingException
+from src.pygating.gates import AndGate
+from src.pygating.pygating import AbstractGate, AbstractGatingConfiguration, PyGating, GatingException
 import pytest
 from typing import Optional, Any, Dict
 

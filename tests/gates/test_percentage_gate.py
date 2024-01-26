@@ -1,6 +1,6 @@
 
 import pytest
-from pygating.gates import PercentageGate
+from src.pygating.gates import PercentageGate
 from unittest.mock import Mock
 
 class TestPercentageGate:

@@ -1,6 +1,6 @@
 from typing import Any,  Optional, Callable, Dict
-from pygating.gates import OrGate
-from pygating import AbstractGate, GatingException, PyGating
+from src.pygating.gates import OrGate
+from src.pygating import AbstractGate, GatingException, PyGating
 import pytest
 from unittest.mock import Mock
 

@@ -1,5 +1,5 @@
 from typing import Any,  Optional, Callable
-from pygating.gates import CustomScriptGate
+from src.pygating.gates import CustomScriptGate
 import pytest
 
 class TestCustomScriptGate:

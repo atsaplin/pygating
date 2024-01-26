@@ -1,6 +1,6 @@
 # tests/test_simple_gate.py
 import pytest
-from pygating.gates import SimpleGate
+from src.pygating.gates import SimpleGate
 
 
 class TestSimpleGate:
