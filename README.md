@@ -1,3 +1,5 @@
+[![Python tests](https://github.com/atsaplin/pygating/actions/workflows/python-package.yml/badge.svg?branch=main)](https://github.com/atsaplin/pygating/actions/workflows/python-package.yml)
+
 # PyGating
 
 PyGating is a small but simple python library that enables you to quickly introduce a/b testing, control code flow, and introduce control switches to your codebase that can be controlled via both code and json-based configs.
@@ -44,12 +46,12 @@ Json-based config
 ```json
 gate_config = {
     "type": "GatingConfigurationAll",
-    "fail_closed": True,
+    "fail_closed": true,
     "gates": [
         {
             "type": "PercentageGate",
             "percentage": 10.0,
-            "allow": True,
+            "allow": true,
             "entity_property": "id"
         }
     ]
