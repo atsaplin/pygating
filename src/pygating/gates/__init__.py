@@ -9,3 +9,4 @@ from .property_gating_type import PropertyGatingType
 from .random_gate import RandomGate
 from .regex_gate import RegexGate
 from .simple_gate import SimpleGate
+from .list_container_gate import ListContainertGate
