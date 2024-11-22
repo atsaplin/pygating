@@ -1,13 +1,19 @@
-from src.pygating import PyGating
-from src.pygating.gating_configurations import GatingConfigurationAll
-from src.pygating.gates import PercentageGate, RandomGate
 import random
 import string
+from datetime import datetime
+
+from pygating.gates.date_gate import DateGate
+from src.pygating import PyGating
+from src.pygating.gates import PercentageGate
+from src.pygating.gating_configurations import GatingConfigurationAll
+
 
 def generate_random_id():
-    return ''.join(random.choices(string.ascii_letters + string.digits, k=16))
+    return "".join(random.choices(string.ascii_letters + string.digits, k=16))
+
+
 def random_string(length):
-    return ''.join(random.choices(string.ascii_letters, k=length))
+    return "".join(random.choices(string.ascii_letters, k=length))
 
 
 class Name:
@@ -23,6 +29,7 @@ class Name:
     def last_name(self):
         return self._last
 
+
 class Shop:
     def __init__(self, name):
         self._name = name
@@ -30,13 +37,18 @@ class Shop:
     def get_name(self):
         return self._name
 
+
 class Entity:
     def __init__(self, id: str, shop):
         self.id = id
         self.shop = shop
 
+        # Get the created at time to 2024-01-01
+        self.created_at = datetime(2024, 1, 1)
+
     def get_id(self):
         return self.id
+
 
 # Initialize PyGating
 PyGating.init()
@@ -45,8 +57,10 @@ PyGating.init()
 gate_config = GatingConfigurationAll(
     fail_closed=True,
     gates=[
-        PercentageGate(percentage=10, allow=True, entity_property="shop.get_name.details.length"),
-    ]
+        PercentageGate(
+            percentage=10, allow=True, entity_property="shop.get_name.details.length"
+        ),
+    ],
 )
 
 # gate_config = {
@@ -74,7 +88,23 @@ for _ in range(num_entities):
     entity = Entity(id=generate_random_id(), shop=shop)
     if PyGating.check_gating(gate_config, entity=entity):
         passed_count += 1
-        
+
 # Print out the percentage of entities that passed the gate
 percentage_passed = (passed_count / num_entities) * 100
-print(f"Percentage of entities that passed the gate: {percentage_passed}%") # Should be roughly 5%
+print(
+    f"Percentage of entities that passed the gate: {percentage_passed}%"
+)  # Should be roughly 5%
+
+
+gate_config = GatingConfigurationAll(
+    fail_closed=True,
+    gates=[
+        DateGate(
+            start_date=datetime(2024, 1, 1),
+            end_date=datetime(2024, 12, 31),
+            entity_property="created_at",
+        ),
+    ],
+)
+
+print(PyGating.check_gating(gate_config, entity=entity))

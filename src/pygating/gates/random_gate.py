@@ -1,6 +1,8 @@
-from typing import Any,  Optional, Dict
 import random
+from typing import Any, Dict, Optional
+
 from ..pygating import AbstractGate
+
 
 class RandomGate(AbstractGate):
     def __init__(self, chance: float, allow: bool = True):
@@ -12,15 +14,17 @@ class RandomGate(AbstractGate):
     def _check_gate(self, entity: Optional[Any] = None) -> bool:
         if random.random() <= self.chance:
             return True
-        
+
         return False
-    
+
     @classmethod
     def _parse_json_params(cls, gate_json: Dict[str, Any]) -> Dict:
         params = super()._parse_json_params(gate_json)
-        if "chance" not in gate_json or not isinstance(gate_json["chance"], (float, int)):
-            raise ValueError("The 'chance' field must be a float or int")
-        
+        if "chance" not in gate_json or not isinstance(
+            gate_json["chance"], (float, int)
+        ):
+            raise ValueError("'chance' field must be a float or int")
+
         params["chance"] = gate_json["chance"]
-        
+
         return params
